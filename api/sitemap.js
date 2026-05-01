@@ -1,0 +1,27 @@
+// api/sitemap.js — Serves sitemap as valid XML
+// Bypasses Vercel cleanUrls interference with static .xml files
+
+module.exports = async function handler(req, res) {
+  res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+  res.setHeader('Cache-Control', 'public, max-age=3600');
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.woodburynest.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.woodburynest.com/buyers</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.woodburynest.com/sellers</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.woodburynest.com/listings</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.woodburynest.com/home-worth</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.woodburynest.com/services</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.woodburynest.com/market</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.woodburynest.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.woodburynest.com/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.woodburynest.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.woodburynest.com/blog/first-time-buyer-twin-cities</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.woodburynest.com/blog/twin-cities-housing-market-2026</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.woodburynest.com/blog/down-payment-assistance-myths</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.woodburynest.com/blog/down-payment-assistance-qualify-woodbury</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>`;
+
+  return res.status(200).send(sitemap);
+};

@@ -1,0 +1,332 @@
+/* ── Resource Pages (Buyers / Sellers) ─────────────────── */
+
+.steps-nav {
+  background: var(--navy);
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.steps-nav::-webkit-scrollbar { height: 3px; }
+.steps-nav::-webkit-scrollbar-thumb { background: var(--gold); }
+.steps-nav__inner {
+  display: flex;
+  gap: 4px;
+  padding: 12px 0;
+  white-space: nowrap;
+}
+.step-pill {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  transition: all 0.15s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.step-pill:hover { background: rgba(201,168,76,0.15); color: var(--gold); }
+
+/* ── Layout ─────────────────────────────────────────────── */
+.resource-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .resource-layout { grid-template-columns: 1fr; }
+  .resource-sidebar { order: -1; }
+}
+
+/* ── Steps ──────────────────────────────────────────────── */
+.resource-steps { display: flex; flex-direction: column; gap: 0; }
+
+.res-step {
+  border-left: 3px solid var(--border);
+  margin-left: 20px;
+  padding: 0 0 48px 32px;
+  position: relative;
+}
+.res-step:last-of-type { border-left-color: transparent; }
+
+.res-step__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.res-step__num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: absolute;
+  left: -24px;
+  box-shadow: 0 0 0 4px var(--white);
+}
+.res-step__header h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  padding-left: 28px;
+}
+
+.res-step__body p {
+  color: var(--text-mid);
+  line-height: 1.75;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+.res-step__body ul {
+  margin: 0 0 16px 20px;
+  color: var(--text-mid);
+  line-height: 1.75;
+  font-size: 0.92rem;
+}
+.res-step__body li { margin-bottom: 8px; }
+.res-step__body strong { color: var(--text); }
+.res-step__body a { color: var(--gold); text-decoration: underline; }
+.res-step__body h4 { font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 500; color: var(--navy); }
+
+/* ── Tips ───────────────────────────────────────────────── */
+.res-tip {
+  background: linear-gradient(135deg, #faf8f0, #f5f0e0);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+  margin-top: 16px;
+}
+.res-tip a { color: var(--gold); }
+
+/* ── Info boxes ─────────────────────────────────────────── */
+.res-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+@media (max-width: 600px) { .res-grid-2 { grid-template-columns: 1fr; } }
+
+.res-box {
+  background: var(--stone);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.res-box--gold { background: #faf5e4; border: 1px solid #e8c96a; }
+.res-box--muted { background: #f5f5f5; opacity: 0.85; }
+.res-box h4 {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.res-box p, .res-box ul {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+  margin: 0;
+}
+.res-box ul { padding-left: 16px; }
+.res-box li { margin-bottom: 4px; }
+
+/* ── Table ──────────────────────────────────────────────── */
+.res-table {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 16px 0;
+  font-size: 0.85rem;
+}
+.res-table__row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 2fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+.res-table__row:last-child { border-bottom: none; }
+.res-table__row span {
+  padding: 11px 14px;
+  color: var(--text-mid);
+  line-height: 1.5;
+  border-right: 1px solid var(--border);
+}
+.res-table__row span:last-child { border-right: none; }
+.res-table__row--header span {
+  background: var(--stone);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-mid);
+}
+.res-table__row:hover span { background: #faf8f3; }
+
+/* 2-column tables */
+.res-table .res-table__row:has(span:nth-child(2):last-child) {
+  grid-template-columns: 1fr 2fr;
+}
+
+/* ── CTA block ──────────────────────────────────────────── */
+.res-cta {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 40px;
+  margin-top: 16px;
+}
+.res-cta .eyebrow { margin-bottom: 12px; }
+.res-cta h3 { color: #fff; font-size: 1.5rem; margin-bottom: 12px; }
+.res-cta p { color: rgba(255,255,255,0.65); font-size: 0.92rem; margin-bottom: 24px; line-height: 1.65; }
+
+/* ── Sidebar ────────────────────────────────────────────── */
+.resource-sidebar {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (max-width: 960px) {
+  .resource-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .resource-sidebar { grid-template-columns: 1fr; }
+}
+
+.res-sidebar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.res-sidebar-card--cta { border-color: var(--gold); background: #faf5e4; }
+.res-sidebar-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.res-sidebar-card p {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.res-sidebar-card ul {
+  list-style: none;
+  padding: 0;
+}
+.res-sidebar-card li { margin-bottom: 6px; }
+.res-sidebar-card a {
+  font-size: 0.83rem;
+  color: var(--text-mid);
+  transition: color 0.15s;
+}
+.res-sidebar-card a:hover { color: var(--gold); }
+.res-sidebar-link {
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--gold) !important;
+}
+
+@media (max-width: 480px) {
+  .res-step { margin-left: 12px; padding-left: 24px; }
+  .res-step__num { width: 36px; height: 36px; left: -20px; font-size: 1.1rem; }
+  .res-step__header h2 { font-size: 1.2rem; padding-left: 16px; }
+  .res-table { font-size: 0.78rem; overflow-x: auto; }
+  .res-table__row { grid-template-columns: 1fr 1fr; }
+  .res-table__row span:nth-child(3) { display: none; }
+  .res-cta { padding: 24px 20px; }
+}
+
+/* ── Mobile performance ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .res-step { border-left-color: var(--border) !important; }
+  .reveal { transition: opacity 0.3s ease, transform 0.3s ease; }
+  .res-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .res-table__row { min-width: 500px; }
+}
+
+/* ── Lazy loaded steps ─────────────────────────────────── */
+.lazy-step {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.lazy-step.loaded {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Mobile overflow fixes ─────────────────────────────── */
+@media (max-width: 768px) {
+  /* Prevent entire page horizontal scroll */
+  .resource-layout { overflow-x: hidden; }
+  
+  /* Tables scroll within their own container only */
+  .res-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    font-size: 0.78rem;
+  }
+  .res-table__row {
+    display: flex;
+    min-width: 480px;
+  }
+
+  /* Two column grids collapse to single column */
+  .res-grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Step header wraps cleanly */
+  .res-step__header h2 {
+    font-size: 1.1rem;
+    padding-left: 12px;
+  }
+
+  /* Step number smaller */
+  .res-step__num {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    left: -18px;
+  }
+
+  /* Steps container no overflow */
+  .resource-steps {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Body text readable */
+  .res-step__body p,
+  .res-step__body ul,
+  .res-step__body li {
+    font-size: 0.88rem;
+    word-break: break-word;
+  }
+
+  /* Box content wraps */
+  .res-box {
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  .res-table { font-size: 0.72rem; }
+  .res-table__row { min-width: 420px; }
+  .res-step { margin-left: 8px; padding-left: 20px; }
+}
