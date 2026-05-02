@@ -136,9 +136,9 @@ a:hover { color: var(--navy); }
   flex-shrink: 0;
 }
 .nav-logo-svg {
-  height: 52px;
+  height: 36px;
   width: auto;
-  max-width: 260px;
+  max-width: 200px;
   display: block;
   object-fit: contain;
 }
@@ -155,11 +155,11 @@ a:hover { color: var(--navy); }
   flex-shrink: 0;
 }
 @media (max-width: 768px) {
-  .nav-logo-svg { height: 40px; max-width: 200px; }
+  .nav-logo-svg { height: 28px; max-width: 160px; }
   .nav-logo-kw { height: 22px; }
 }
 @media (max-width: 480px) {
-  .nav-logo-svg { height: 36px; max-width: 180px; }
+  .nav-logo-svg { height: 24px; max-width: 130px; }
   .nav-logo-kw { height: 18px; }
 }
 
@@ -818,9 +818,4 @@ img { content-visibility: auto; }
 }
 @media (max-width: 480px) {
   .hero-logo-svg { height: 44px; max-width: 190px; }
-}
-/* Hide KW logo in hero on mobile — already visible in nav */
-@media (max-width: 768px) {
-  .hero-kw-logo { display: none; }
-  .hero-brand-divider { display: none; }
 }
