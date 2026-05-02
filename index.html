@@ -18,21 +18,10 @@
       position: relative;
       overflow: hidden;
       padding-top: 68px;
-      background-image: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1600&q=80&auto=format&fit=crop');
+      background-image: linear-gradient(105deg, rgba(26,26,46,0.92) 0%, rgba(26,26,46,0.78) 55%, rgba(26,26,46,0.45) 100%), url('/images/hero-home.jpg');
       background-size: cover;
       background-position: center 40%;
       background-repeat: no-repeat;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        105deg,
-        rgba(26,26,46,0.92) 0%,
-        rgba(26,26,46,0.78) 55%,
-        rgba(26,26,46,0.45) 100%
-      );
     }
     .hero-content {
       position: relative;
@@ -51,29 +40,19 @@
       height: 36px;
       background: rgba(201,168,76,0.4);
     }
+    .hero-logo-svg {
+      height: 80px;
+      width: auto;
+      max-width: 340px;
+      display: block;
+      object-fit: contain;
+    }
     .hero-kw-logo {
-      height: 28px;
+      height: 32px;
       width: auto;
       filter: brightness(0) invert(1);
       opacity: 0.85;
     }
-    .hero-wordmark {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: 0.02em;
-    }
-    .hero-wordmark span { color: var(--gold); }
-    .hero h1 {
-      color: var(--cream);
-      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-      font-weight: 600;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
-    }
-    .hero h1 em { color: var(--gold); font-style: italic; }
     .hero .lead {
       font-size: 1.05rem;
       color: rgba(250,248,243,0.78);
@@ -82,9 +61,14 @@
       max-width: 520px;
     }
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    @media (max-width: 768px) {
+      .hero-kw-logo { display: none; }
+      .hero-brand-divider { display: none; }
+      .hero-logo-svg { height: 60px; max-width: 260px; }
+    }
     @media (max-width: 600px) {
       .hero { min-height: 88vh; }
-      .hero-brand-divider { display: none; }
+      .hero-logo-svg { height: 50px; max-width: 220px; }
       .hero-cta { gap: 10px; }
       .hero-cta .btn { width: 100%; text-align: center; }
     }
