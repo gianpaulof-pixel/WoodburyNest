@@ -16,11 +16,11 @@
     if (!nav) return;
     nav.innerHTML = `
       <div class="nav-inner">
-        <div class="nav-logo-group" style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+        <div class="nav-logo-group">
           <a href="/" class="nav-logo" aria-label="WoodburyNest - Home">
-            <img src="/images/logo.svg" alt="WoodburyNest" class="nav-logo-svg" loading="eager" style="height:52px;width:auto;max-width:260px;display:block;object-fit:contain;" />
+            <img src="/images/logo.svg" alt="WoodburyNest" class="nav-logo-svg" loading="eager" />
           </a>
-          <img src="/images/kw-logo.png" alt="Keller Williams Premier Realty" class="nav-logo-kw" style="height:28px;width:auto;opacity:1;flex-shrink:0;" />
+          <img src="/images/kw-logo.png" alt="Keller Williams Premier Realty" class="nav-logo-kw" />
         </div>
         <ul class="nav-links">
           <li><a href="/buyers" ${activePage==='buyers'?'class="active"':''}>Buy</a></li>
