@@ -16,9 +16,9 @@
     if (!nav) return;
     nav.innerHTML = `
       <div class="nav-inner">
-        <div class="nav-logo-group">
+        <div class="nav-logo-group" style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
           <a href="/" class="nav-logo" aria-label="WoodburyNest - Home">
-            <img src="/images/logo.svg" alt="WoodburyNest" class="nav-logo-svg" loading="eager" />
+            <img src="/images/logo.svg" alt="WoodburyNest" class="nav-logo-svg" loading="eager" style="height:52px;width:auto;max-width:260px;display:block;object-fit:contain;" />
           </a>
           <img src="/images/kw-logo.png" alt="Keller Williams Premier Realty" class="nav-logo-kw" />
         </div>

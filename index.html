@@ -11,14 +11,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/css/style.css" />
   <style>
+    /* ── HERO — fully self-contained, no style.css dependency ── */
     .hero {
-      min-height: 94vh;
+      min-height: 96vh;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      padding-top: 68px;
-      background-image: linear-gradient(105deg, rgba(26,26,46,0.92) 0%, rgba(26,26,46,0.78) 55%, rgba(26,26,46,0.45) 100%), url('/images/hero-home.jpg');
+      padding-top: 80px;
+      background-image:
+        linear-gradient(105deg, rgba(26,26,46,0.88) 0%, rgba(26,26,46,0.75) 55%, rgba(26,26,46,0.50) 100%),
+        url('/images/hero-home.jpg');
       background-size: cover;
       background-position: center 40%;
       background-repeat: no-repeat;
@@ -26,38 +29,49 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 660px;
+      max-width: 700px;
+      padding: 0 24px;
     }
     .hero-brand-row {
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
+      margin-bottom: 32px;
     }
+    /* Hero SVG logo — large enough tagline is clearly visible */
     .hero-logo-svg {
-      height: 100px;
+      height: 130px;
       width: auto;
-      max-width: 420px;
+      max-width: 520px;
       display: block;
       object-fit: contain;
     }
     .hero .lead {
-      font-size: 1.05rem;
-      color: rgba(250,248,243,0.78);
-      margin-bottom: 36px;
+      font-size: 1.1rem;
+      color: rgba(250,248,243,0.82);
+      margin-bottom: 40px;
       line-height: 1.75;
-      max-width: 520px;
+      max-width: 560px;
     }
-    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-    @media (max-width: 768px) {
-      .hero-logo-svg { height: 72px; max-width: 300px; }
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
     }
+    /* Tablet */
+    @media (max-width: 900px) {
+      .hero-logo-svg { height: 100px; max-width: 400px; }
+    }
+    /* Mobile */
     @media (max-width: 600px) {
-      .hero { min-height: 88vh; }
-      .hero-logo-svg { height: 56px; max-width: 240px; }
+      .hero { min-height: 92vh; padding-top: 72px; }
+      .hero-logo-svg { height: 80px; max-width: 320px; }
+      .hero .lead { font-size: 1rem; }
       .hero-cta { gap: 10px; }
       .hero-cta .btn { width: 100%; text-align: center; }
+    }
+    @media (max-width: 380px) {
+      .hero-logo-svg { height: 64px; max-width: 260px; }
     }
   </style>
   <script type="application/ld+json">
