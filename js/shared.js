@@ -20,7 +20,7 @@
           <a href="/" class="nav-logo" aria-label="WoodburyNest - Home">
             <img src="/images/logo.svg" alt="WoodburyNest" class="nav-logo-svg" loading="eager" style="height:52px;width:auto;max-width:260px;display:block;object-fit:contain;" />
           </a>
-          <img src="/images/kw-logo.png" alt="Keller Williams Premier Realty" class="nav-logo-kw" />
+          <img src="/images/kw-logo.png" alt="Keller Williams Premier Realty" class="nav-logo-kw" style="height:28px;width:auto;opacity:1;flex-shrink:0;" />
         </div>
         <ul class="nav-links">
           <li><a href="/buyers" ${activePage==='buyers'?'class="active"':''}>Buy</a></li>
