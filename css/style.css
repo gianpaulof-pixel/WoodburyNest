@@ -142,6 +142,12 @@ a:hover { color: var(--navy); }
   display: block;
   object-fit: contain;
 }
+.nav-logo-kw {
+  height: 28px;
+  width: auto;
+  opacity: 1;
+  flex-shrink: 0;
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -210,6 +216,14 @@ a:hover { color: var(--navy); }
 @media (max-width: 900px) {
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
+}
+@media (max-width: 768px) {
+  .nav-logo-svg { height: 40px; max-width: 200px; }
+  .nav-logo-kw { height: 22px; }
+}
+@media (max-width: 480px) {
+  .nav-logo-svg { height: 36px; max-width: 180px; }
+  .nav-logo-kw { height: 18px; }
 }
 
 /* ---- Footer ---- */
