@@ -20,8 +20,9 @@ module.exports = async function handler(req, res) {
   <url><loc>https://www.woodburynest.com/blog/first-time-buyer-twin-cities</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.woodburynest.com/blog/twin-cities-housing-market-2026</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.woodburynest.com/blog/down-payment-assistance-myths</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.woodburynest.com/blog/down-payment-assistance-qualify-woodbury</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.woodburynest.com/blog/selling-your-home-woodbury-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.woodburynest.com/blog/cost-of-buying-home-woodbury-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.woodburynest.com/blog/down-payment-assistance-qualify-woodbury</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>`;
 
   return res.status(200).send(sitemap);
