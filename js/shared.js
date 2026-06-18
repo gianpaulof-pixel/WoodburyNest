@@ -16,11 +16,11 @@
     if (!nav) return;
     nav.innerHTML = `
       <div class="nav-inner">
-        <div class="nav-logo-group" style="display:flex;flex-direction:row;align-items:center;gap:14px;flex-shrink:0;">
+        <div class="nav-logo-group">
           <a href="/" class="nav-logo" aria-label="WoodburyNest - Home">
-            <img src="/images/logo.svg" alt="WoodburyNest" class="nav-logo-svg" loading="eager" style="height:52px;width:auto;max-width:260px;display:block;object-fit:contain;" />
+            <img src="/images/logo.svg" alt="WoodburyNest" class="nav-logo-svg" loading="eager" />
           </a>
-          <img src="/images/kw-logo.png" alt="Keller Williams Premier Realty" class="nav-logo-kw" style="height:28px;width:auto;opacity:1;flex-shrink:0;" />
+          <img src="/images/kw-logo.png" alt="Keller Williams Premier Realty" class="nav-logo-kw" />
         </div>
         <ul class="nav-links">
           <li><a href="/buyers" ${activePage==='buyers'?'class="active"':''}>Buy</a></li>
@@ -322,11 +322,8 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(form));
-      // Add source identifier
-      data.source = formId === 'cma-form' ? 'cma-request' : 'contact-form';
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
-      if (msgEl) { msgEl.className = 'form-message'; msgEl.textContent = ''; }
 
       try {
         const res = await fetch(endpoint, {
@@ -336,25 +333,25 @@
         });
         const result = await res.json();
         if (res.ok && result.success) {
-          if (msgEl) {
-            msgEl.className = 'form-message success';
-            msgEl.textContent = result.message || 'Message sent! Gian will be in touch within 24 hours.';
-            msgEl.style.display = 'block';
-          }
+          msgEl.className = 'form-message success';
+          msgEl.textContent = result.message || 'Message sent! Gian will be in touch shortly.';
           form.reset();
-          submitBtn.textContent = 'Sent!';
+          // Fire GA4 lead event for Google Ads conversion tracking
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              event_category: formId,
+              event_label: document.title
+            });
+          }
         } else {
           throw new Error(result.error || 'Submission failed');
         }
       } catch (err) {
-        if (msgEl) {
-          msgEl.className = 'form-message error';
-          msgEl.textContent = 'Something went wrong. Please call (612) 520-1009 directly.';
-          msgEl.style.display = 'block';
-        }
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
+        msgEl.className = 'form-message error';
+        msgEl.textContent = 'Something went wrong. Please try again or call (612) 520-1009.';
       }
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
     });
   };
 

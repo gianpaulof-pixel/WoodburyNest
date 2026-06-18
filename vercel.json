@@ -15,7 +15,7 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" },
         { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.vercel-insights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com; frame-src https://northstarmls.stats.10kresearch.com; connect-src 'self' https://www.google-analytics.com https://api.resend.com https://*.vercel-insights.com; object-src 'none'" }
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.vercel-insights.com https://www.googleadservices.com https://googleads.googleapis.com https://www.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googleadservices.com; frame-src https://northstarmls.stats.10kresearch.com https://gianpaulov.freehomevalues.net; connect-src 'self' https://www.google-analytics.com https://api.resend.com https://*.vercel-insights.com https://www.googleadservices.com https://googleads.googleapis.com; object-src 'none'" }
       ]
     },
     {
