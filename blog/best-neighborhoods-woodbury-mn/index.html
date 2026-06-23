@@ -185,8 +185,44 @@
     @media (max-width: 600px) {
       .nbhd-block__body { padding: 20px 16px; }
       .nbhd-block__header { padding: 18px 16px; }
+      .nbhd-block__header h2 { font-size: 1.25rem; }
       .compare-table thead th,
-      .compare-table tbody td { padding: 10px 10px; font-size: 0.8rem; }
+      .compare-table tbody td { padding: 10px 8px; font-size: 0.78rem; }
+      .compare-table tbody td:first-child { white-space: normal; }
+      .toc-block { padding: 18px 16px; }
+    }
+
+    /* Quick Match — responsive rows */
+    .quick-match-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .quick-match-row:last-child { border-bottom: none; }
+    .quick-match-label {
+      padding: 14px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+      border-right: 1px solid var(--border);
+    }
+    .quick-match-value {
+      padding: 14px 20px;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+    @media (max-width: 560px) {
+      .quick-match-row { grid-template-columns: 1fr; }
+      .quick-match-label {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 12px 16px;
+        background: rgba(26,26,46,0.03);
+        font-size: 0.85rem;
+      }
+      .quick-match-value { padding: 10px 16px 14px; font-size: 0.85rem; }
+      .faq-item { padding: 18px 16px !important; }
+      .faq-item h3 { font-size: 1.05rem !important; }
     }
   </style>
 </head>
@@ -438,7 +474,6 @@
         <p style="font-size:0.8rem;color:var(--text-light);margin-top:-24px;margin-bottom:40px;">Price ranges are approximate based on NorthstarMLS data current as of June 2026. Active inventory and closed sales vary; contact me for current comps in a specific neighborhood.</p>
 
         <h2>How to Choose the Right Woodbury Neighborhood</h2>
-        <p>The most common mistake I see buyers make is filtering by price alone and then picking the largest home that fits their budget. That approach ignores the things that drive daily quality of life: commute pattern, school boundaries, trail access, and how much maintenance the property actually requires.</p>
         <p>A few questions worth answering before you narrow your search:</p>
         <ul>
           <li><strong>How do you actually spend your weekends?</strong> If outdoor recreation is central to your lifestyle, Bailey's Arbor and Powers Lake should be at the top of your list. If you want a private clubhouse and social infrastructure built in, Twenty-One Oaks changes the calculus.</li>
@@ -447,40 +482,38 @@
           <li><strong>Are you thinking about resale?</strong> Waterfront and golf-adjacent properties in Woodbury have historically held value well due to constrained supply. Established neighborhoods like Evergreen also tend to be more resilient in softer markets than newer developments at the urban fringe.</li>
         </ul>
 
-        <p>If you are still working through these questions, the best next step is a conversation. I will tell you what I am seeing in the market right now, which neighborhoods have active inventory, and how the numbers actually compare for your specific budget and timeline.</p>
-
         <!-- Quick Match -->
         <h2 id="quick-match">Quick Match: Which Neighborhood Fits?</h2>
-        <p>If you want a one-line answer before reading further, start here. These are the honest, ground-level fits I recommend most often based on buyer priorities.</p>
+        <p>A quick reference based on buyer priorities.</p>
 
         <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:40px;">
           <div style="background:var(--navy);padding:14px 20px;">
             <span style="font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Your Priority → Best Fit</span>
           </div>
           <div style="padding:0;">
-            <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);">
-              <div style="padding:14px 20px;font-size:0.9rem;font-weight:600;color:var(--navy);border-right:1px solid var(--border);">Widest price range; entry into ISD 833</div>
-              <div style="padding:14px 20px;font-size:0.9rem;color:var(--text-mid);">Bailey's Arbor</div>
+            <div class="quick-match-row">
+              <div class="quick-match-label">Widest price range; entry into ISD 833</div>
+              <div class="quick-match-value">Bailey's Arbor</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);background:rgba(250,248,243,0.5);">
-              <div style="padding:14px 20px;font-size:0.9rem;font-weight:600;color:var(--navy);border-right:1px solid var(--border);">Privacy, prestige, golf course backdrop</div>
-              <div style="padding:14px 20px;font-size:0.9rem;color:var(--text-mid);">Wedgewood / Prestwick</div>
+            <div class="quick-match-row" style="background:rgba(250,248,243,0.5);">
+              <div class="quick-match-label">Privacy, prestige, golf course backdrop</div>
+              <div class="quick-match-value">Wedgewood / Prestwick</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);">
-              <div style="padding:14px 20px;font-size:0.9rem;font-weight:600;color:var(--navy);border-right:1px solid var(--border);">Waterfront lifestyle; long-term hold</div>
-              <div style="padding:14px 20px;font-size:0.9rem;color:var(--text-mid);">Powers Lake</div>
+            <div class="quick-match-row">
+              <div class="quick-match-label">Waterfront lifestyle; long-term hold</div>
+              <div class="quick-match-value">Powers Lake</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);background:rgba(250,248,243,0.5);">
-              <div style="padding:14px 20px;font-size:0.9rem;font-weight:600;color:var(--navy);border-right:1px solid var(--border);">Move-in ready; modern finishes; low maintenance</div>
-              <div style="padding:14px 20px;font-size:0.9rem;color:var(--text-mid);">Highcroft</div>
+            <div class="quick-match-row" style="background:rgba(250,248,243,0.5);">
+              <div class="quick-match-label">Move-in ready; modern finishes; low maintenance</div>
+              <div class="quick-match-value">Highcroft</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);">
-              <div style="padding:14px 20px;font-size:0.9rem;font-weight:600;color:var(--navy);border-right:1px solid var(--border);">Large lot; mature neighborhood; character</div>
-              <div style="padding:14px 20px;font-size:0.9rem;color:var(--text-mid);">Evergreen</div>
+            <div class="quick-match-row">
+              <div class="quick-match-label">Large lot; mature neighborhood; character</div>
+              <div class="quick-match-value">Evergreen</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;">
-              <div style="padding:14px 20px;font-size:0.9rem;font-weight:600;color:var(--navy);border-right:1px solid var(--border);">Luxury custom; private club amenities</div>
-              <div style="padding:14px 20px;font-size:0.9rem;color:var(--text-mid);">Twenty-One Oaks</div>
+            <div class="quick-match-row">
+              <div class="quick-match-label">Luxury custom; private club amenities</div>
+              <div class="quick-match-value">Twenty-One Oaks</div>
             </div>
           </div>
         </div>
@@ -495,7 +528,7 @@
           <li><strong>East Ridge High School:</strong> Niche A-minus. Serves most of east and south Woodbury including Bailey's Arbor and Wedgewood.</li>
           <li><strong>Woodbury Senior High School:</strong> Niche A-minus. Serves central and west Woodbury including Evergreen.</li>
         </ul>
-        <p>One additional note: a portion of northeast Woodbury falls within ISD 834, the Stillwater Area Public Schools district (also Niche A-minus). If Stillwater schools are your target and Lake Elmo's price point is above your budget, this slice of Woodbury is worth asking about. Always verify the exact school assignment for any specific address — district boundary lines do not always follow obvious geographic logic.</p>
+        <p>One additional note: a portion of northeast Woodbury falls within ISD 834, the Stillwater Area Public Schools district (also Niche A-minus). Always verify the exact school assignment for any specific address — district boundary lines do not always follow obvious geographic logic.</p>
         <p style="font-size:0.8rem;color:var(--text-light);">Sources: Niche.com 2026, GreatSchools.org 2025-26. Ratings are a reference point, not a definitive assessment. Visit schools directly and verify boundaries through ISD 833 before making a purchase decision based on school assignment.</p>
 
         <!-- FAQ -->
@@ -503,41 +536,40 @@
 
         <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:40px;">
 
-          <div style="border-bottom:1px solid var(--border);padding:24px 28px;">
+          <div class="faq-item" style="border-bottom:1px solid var(--border);padding:24px 28px;">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);margin:0 0 10px;">What is the most affordable neighborhood in Woodbury?</h3>
             <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">Of the six neighborhoods in this guide, Bailey's Arbor has the widest range and the lowest entry point, with townhomes and twin homes starting in the low-to-mid $300,000s. Evergreen is the most accessible for detached single-family homes, typically starting in the mid-$400,000s. Both are served by ISD 833.</p>
           </div>
 
-          <div style="border-bottom:1px solid var(--border);padding:24px 28px;background:rgba(250,248,243,0.4);">
+          <div class="faq-item" style="border-bottom:1px solid var(--border);padding:24px 28px;background:rgba(250,248,243,0.4);">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);margin:0 0 10px;">Which Woodbury neighborhood has the best schools?</h3>
-            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">All six neighborhoods in this guide are served by ISD 833, one of the top 10% of school districts in Minnesota by Niche rankings. The specific elementary school varies by address. Liberty Ridge Elementary, which serves Bailey's Arbor, carries one of the highest GreatSchools ratings in the district at 9 out of 10. The honest answer is that the district as a whole is strong — the differences between individual schools are smaller than most buyers expect.</p>
+            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">All six neighborhoods in this guide are served by ISD 833, one of the top 10% of school districts in Minnesota by Niche rankings. The specific elementary school varies by address. Liberty Ridge Elementary, which serves Bailey's Arbor, carries one of the highest GreatSchools ratings in the district at 9 out of 10. The district as a whole is strong — the differences between individual schools are smaller than most buyers expect.</p>
           </div>
 
-          <div style="border-bottom:1px solid var(--border);padding:24px 28px;">
+          <div class="faq-item" style="border-bottom:1px solid var(--border);padding:24px 28px;">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);margin:0 0 10px;">How competitive is the Woodbury market in 2026?</h3>
-            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">Well-priced homes in Woodbury continue to move quickly. Across Woodbury, a significant share of homes sell within 14 days of listing, and multiple-offer situations remain common in the $400K-$600K range. Luxury properties in Wedgewood and Twenty-One Oaks move more slowly but tend to attract serious, well-qualified buyers when inventory does appear. Current NorthstarMLS data for your target price range is the most reliable source — contact me for a current snapshot.</p>
+            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">Well-priced homes in Woodbury continue to move quickly. A significant share of homes sell within 14 days of listing, and multiple-offer situations remain common in the $400K–$600K range. Luxury properties in Wedgewood and Twenty-One Oaks move more slowly but tend to attract serious, well-qualified buyers when inventory does appear. Contact me for a current NorthstarMLS snapshot for your target price range.</p>
           </div>
 
-          <div style="border-bottom:1px solid var(--border);padding:24px 28px;background:rgba(250,248,243,0.4);">
+          <div class="faq-item" style="border-bottom:1px solid var(--border);padding:24px 28px;background:rgba(250,248,243,0.4);">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);margin:0 0 10px;">Are there Woodbury neighborhoods without HOA fees?</h3>
-            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">Yes. Evergreen and portions of Wedgewood and Powers Lake have minimal or no HOA requirements. Bailey's Arbor and Twenty-One Oaks do carry HOA fees that cover community amenities — pools, clubhouses, trail maintenance. Whether that tradeoff makes sense depends on how much you would actually use those amenities. I can tell you what current HOA fees look like for any specific community before you make an offer.</p>
+            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">Yes. Evergreen and portions of Wedgewood and Powers Lake have minimal or no HOA requirements. Bailey's Arbor and Twenty-One Oaks carry HOA fees that cover community amenities — pools, clubhouses, trail maintenance. Whether that tradeoff makes sense depends on how much you would actually use those amenities.</p>
           </div>
 
-          <div style="padding:24px 28px;">
+          <div class="faq-item" style="padding:24px 28px;">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);margin:0 0 10px;">How do I verify which school district a specific home falls in?</h3>
-            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">The most reliable method is to check directly with ISD 833 using the specific property address — district boundary maps are available through the district's website but can be counterintuitive near the edges. Do not rely on listing descriptions or neighborhood names alone. Elementary school boundaries within ISD 833 do not always align with the broader neighborhood boundaries. This is one of the first things I verify for buyer clients before we write an offer.</p>
+            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">The most reliable method is to check directly with ISD 833 using the specific property address — district boundary maps are available through the district's website but can be counterintuitive near the edges. Do not rely on listing descriptions or neighborhood names alone. Elementary school boundaries within ISD 833 do not always align with the broader neighborhood boundaries.</p>
           </div>
 
         </div>
 
-
         <div class="blog-cta">
           <span class="eyebrow">Local Expertise</span>
           <h3>Not Sure Which Neighborhood Fits?</h3>
-          <p>I work in Woodbury every day. Let's talk through your priorities and narrow this down to two or three communities worth touring — no pressure, no pitch.</p>
+          <p>Let's talk through your priorities and narrow this down to two or three communities worth touring — no pressure, no obligation.</p>
           <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
             <a href="/contact" class="btn btn-primary">Schedule a Conversation</a>
-            <a href="/buyers" class="btn btn-outline-light">Buyer's Guide</a>
+            <a href="/buyers" class="btn btn-outline">Buyer's Guide</a>
           </div>
         </div>
 
