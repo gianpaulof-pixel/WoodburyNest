@@ -192,6 +192,10 @@
       .toc-block { padding: 18px 16px; }
     }
 
+    /* Global mobile overflow fix */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .blog-content, .blog-body, .container { max-width: 100%; box-sizing: border-box; }
+
     /* Quick Match — responsive rows */
     .quick-match-row {
       display: grid;
@@ -419,8 +423,6 @@
               <tr>
                 <th>Neighborhood</th>
                 <th>Price Range</th>
-                <th>Home Type</th>
-                <th>Best Known For</th>
                 <th>Best Fit</th>
               </tr>
             </thead>
@@ -428,44 +430,32 @@
               <tr>
                 <td>Bailey's Arbor</td>
                 <td>$300K – $700K+</td>
-                <td>SFH, Townhomes, Twin Homes</td>
-                <td>Nature, trail access, entry-level options</td>
                 <td>First-time buyers; outdoor lifestyle</td>
               </tr>
               <tr>
                 <td>Wedgewood / Prestwick</td>
                 <td>$550K – $1M+</td>
-                <td>SFH, Custom</td>
-                <td>Golf course views, privacy, prestige</td>
                 <td>Move-up buyers; long-term owners</td>
               </tr>
               <tr>
                 <td>Powers Lake</td>
                 <td>$500K – $1M+</td>
-                <td>SFH, Lakefront</td>
-                <td>Waterfront access, lifestyle distinction</td>
-                <td>Buyers wanting a unique lifestyle anchor</td>
+                <td>Buyers wanting a lifestyle anchor</td>
               </tr>
               <tr>
                 <td>Highcroft</td>
                 <td>$500K – $1M</td>
-                <td>SFH, Newer Construction</td>
-                <td>Modern finishes, low maintenance</td>
-                <td>Move-in-ready buyers; dual-income households</td>
+                <td>Move-in-ready; dual-income households</td>
               </tr>
               <tr>
                 <td>Evergreen</td>
                 <td>Mid $400Ks – Upper $600Ks</td>
-                <td>SFH, Established</td>
-                <td>Mature landscaping, larger lots, character</td>
-                <td>Buyers who value lot size and neighborhood maturity</td>
+                <td>Buyers valuing lot size and maturity</td>
               </tr>
               <tr>
                 <td>Twenty-One Oaks</td>
                 <td>$600K – $1M+</td>
-                <td>SFH, Custom</td>
-                <td>Private clubhouse, luxury finishes, community</td>
-                <td>Luxury buyers wanting private amenities</td>
+                <td>Luxury buyers; private amenities</td>
               </tr>
             </tbody>
           </table>
