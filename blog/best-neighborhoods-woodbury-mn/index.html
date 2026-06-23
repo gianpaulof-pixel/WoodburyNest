@@ -182,6 +182,10 @@
     }
     .toc-block a:hover { color: var(--gold); }
 
+    /* Global overflow fix */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .blog-content, .blog-body, .container { max-width: 100%; box-sizing: border-box; }
+
     @media (max-width: 600px) {
       .nbhd-block__body { padding: 20px 16px; }
       .nbhd-block__header { padding: 18px 16px; }
@@ -192,11 +196,7 @@
       .toc-block { padding: 18px 16px; }
     }
 
-    /* Global mobile overflow fix */
-    html, body { max-width: 100%; overflow-x: hidden; }
-    .blog-content, .blog-body, .container { max-width: 100%; box-sizing: border-box; }
-
-    /* Quick Match — responsive rows */
+    /* Quick Match responsive rows */
     .quick-match-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -480,7 +480,7 @@
           <div style="background:var(--navy);padding:14px 20px;">
             <span style="font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Your Priority → Best Fit</span>
           </div>
-          <div style="padding:0;">
+          <div>
             <div class="quick-match-row">
               <div class="quick-match-label">Widest price range; entry into ISD 833</div>
               <div class="quick-match-value">Bailey's Arbor</div>
@@ -518,7 +518,7 @@
           <li><strong>East Ridge High School:</strong> Niche A-minus. Serves most of east and south Woodbury including Bailey's Arbor and Wedgewood.</li>
           <li><strong>Woodbury Senior High School:</strong> Niche A-minus. Serves central and west Woodbury including Evergreen.</li>
         </ul>
-        <p>One additional note: a portion of northeast Woodbury falls within ISD 834, the Stillwater Area Public Schools district (also Niche A-minus). Always verify the exact school assignment for any specific address — district boundary lines do not always follow obvious geographic logic.</p>
+        <p>One additional note: a portion of northeast Woodbury falls within ISD 834, the Stillwater Area Public Schools district (also Niche A-minus). If Stillwater schools are your target and Lake Elmo's price point is above your budget, this slice of Woodbury is worth asking about. Always verify the exact school assignment for any specific address — district boundary lines do not always follow obvious geographic logic.</p>
         <p style="font-size:0.8rem;color:var(--text-light);">Sources: Niche.com 2026, GreatSchools.org 2025-26. Ratings are a reference point, not a definitive assessment. Visit schools directly and verify boundaries through ISD 833 before making a purchase decision based on school assignment.</p>
 
         <!-- FAQ -->
@@ -533,25 +533,26 @@
 
           <div class="faq-item" style="border-bottom:1px solid var(--border);padding:24px 28px;background:rgba(250,248,243,0.4);">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);margin:0 0 10px;">Which Woodbury neighborhood has the best schools?</h3>
-            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">All six neighborhoods in this guide are served by ISD 833, one of the top 10% of school districts in Minnesota by Niche rankings. The specific elementary school varies by address. Liberty Ridge Elementary, which serves Bailey's Arbor, carries one of the highest GreatSchools ratings in the district at 9 out of 10. The district as a whole is strong — the differences between individual schools are smaller than most buyers expect.</p>
+            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">All six neighborhoods in this guide are served by ISD 833, one of the top 10% of school districts in Minnesota by Niche rankings. The specific elementary school varies by address. Liberty Ridge Elementary, which serves Bailey's Arbor, carries one of the highest GreatSchools ratings in the district at 9 out of 10. The honest answer is that the district as a whole is strong — the differences between individual schools are smaller than most buyers expect.</p>
           </div>
 
           <div class="faq-item" style="border-bottom:1px solid var(--border);padding:24px 28px;">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);margin:0 0 10px;">How competitive is the Woodbury market in 2026?</h3>
-            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">Well-priced homes in Woodbury continue to move quickly. A significant share of homes sell within 14 days of listing, and multiple-offer situations remain common in the $400K–$600K range. Luxury properties in Wedgewood and Twenty-One Oaks move more slowly but tend to attract serious, well-qualified buyers when inventory does appear. Contact me for a current NorthstarMLS snapshot for your target price range.</p>
+            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">Well-priced homes in Woodbury continue to move quickly. Across Woodbury, a significant share of homes sell within 14 days of listing, and multiple-offer situations remain common in the $400K-$600K range. Luxury properties in Wedgewood and Twenty-One Oaks move more slowly but tend to attract serious, well-qualified buyers when inventory does appear. Current NorthstarMLS data for your target price range is the most reliable source — contact me for a current snapshot.</p>
           </div>
 
           <div class="faq-item" style="border-bottom:1px solid var(--border);padding:24px 28px;background:rgba(250,248,243,0.4);">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);margin:0 0 10px;">Are there Woodbury neighborhoods without HOA fees?</h3>
-            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">Yes. Evergreen and portions of Wedgewood and Powers Lake have minimal or no HOA requirements. Bailey's Arbor and Twenty-One Oaks carry HOA fees that cover community amenities — pools, clubhouses, trail maintenance. Whether that tradeoff makes sense depends on how much you would actually use those amenities.</p>
+            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">Yes. Evergreen and portions of Wedgewood and Powers Lake have minimal or no HOA requirements. Bailey's Arbor and Twenty-One Oaks do carry HOA fees that cover community amenities — pools, clubhouses, trail maintenance. Whether that tradeoff makes sense depends on how much you would actually use those amenities. I can tell you what current HOA fees look like for any specific community before you make an offer.</p>
           </div>
 
           <div class="faq-item" style="padding:24px 28px;">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);margin:0 0 10px;">How do I verify which school district a specific home falls in?</h3>
-            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">The most reliable method is to check directly with ISD 833 using the specific property address — district boundary maps are available through the district's website but can be counterintuitive near the edges. Do not rely on listing descriptions or neighborhood names alone. Elementary school boundaries within ISD 833 do not always align with the broader neighborhood boundaries.</p>
+            <p style="font-size:0.93rem;color:var(--text-mid);margin:0;line-height:1.75;">The most reliable method is to check directly with ISD 833 using the specific property address — district boundary maps are available through the district's website but can be counterintuitive near the edges. Do not rely on listing descriptions or neighborhood names alone. Elementary school boundaries within ISD 833 do not always align with the broader neighborhood boundaries. This is one of the first things I verify for buyer clients before we write an offer.</p>
           </div>
 
         </div>
+
 
         <div class="blog-cta">
           <span class="eyebrow">Local Expertise</span>
