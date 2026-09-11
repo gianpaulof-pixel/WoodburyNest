@@ -27,7 +27,14 @@
           <li><a href="/sellers" ${activePage==='sellers'?'class="active"':''}>Sell</a></li>
           <li><a href="/listings" ${activePage==='listings'?'class="active"':''}>Listings</a></li>
           <li><a href="/market" ${activePage==='market'?'class="active"':''}>Market</a></li>
-          <li><a href="/blog" ${activePage==='blog'?'class="active"':''}>Blog</a></li>
+          <li class="nav-dropdown">
+            <a href="/blog" ${['blog','home-worth'].includes(activePage)?'class="active"':''}>Resources</a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="/home-worth">Home Value / CMA</a></li>
+              <li><a href="/blog/down-payment-assistance-myths">Down Payment Assistance</a></li>
+              <li><a href="/blog">Blog</a></li>
+            </ul>
+          </li>
           <li><a href="/about" ${activePage==='about'?'class="active"':''}>About</a></li>
         </ul>
         <a href="/contact" class="btn btn-primary btn-sm nav-cta">Get in Touch</a>
@@ -41,6 +48,9 @@
           <li><a href="/sellers">Sell</a></li>
           <li><a href="/listings">Listings</a></li>
           <li><a href="/market">Market</a></li>
+          <li class="nav-mobile-label">Resources</li>
+          <li><a href="/home-worth">Home Value / CMA</a></li>
+          <li><a href="/blog/down-payment-assistance-myths">Down Payment Assistance</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact">Contact</a></li>

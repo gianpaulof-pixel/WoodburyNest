@@ -17,6 +17,7 @@ module.exports = async function handler(req, res) {
   <url><loc>https://www.woodburynest.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.woodburynest.com/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.woodburynest.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.woodburynest.com/blog/best-neighborhoods-woodbury-mn</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.woodburynest.com/blog/first-time-buyer-twin-cities</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.woodburynest.com/blog/twin-cities-housing-market-2026</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.woodburynest.com/blog/down-payment-assistance-myths</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
