@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Twin Cities Housing Market Report 2026 | WoodburyNest</title>
-  <meta name="description" content="Current Twin Cities real estate market data, trends, and analysis. Updated 2026 stats for buyers and sellers in the Minneapolis-Saint Paul metro." />
+  <title>Twin Cities Housing Market Report | WoodburyNest</title>
+  <meta name="description" content="Live Twin Cities real estate market data: prices, days on market, and inventory for Woodbury and the 13-county metro. Sourced from NorthstarMLS via InfoSparks." />
   <link rel="canonical" href="https://www.woodburynest.com/market" />
   <link rel="stylesheet" href="/css/style.css" />
   <script type="application/ld+json">
@@ -13,6 +13,30 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L6JWXCB1NL"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L6JWXCB1NL');</script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    .chart-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .chart-desktop { display: block; }
+    .chart-mobile { display: none; }
+    @media (max-width: 768px) {
+      .chart-desktop { display: none; }
+      .chart-mobile { display: block; }
+    }
+    .market-caveat {
+      background: var(--cream-dark, #f0ede6);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      margin-bottom: 40px;
+    }
+    .metro-chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +45,7 @@
 <div class="page-hero hero-market">
   <div class="container">
     <h1>Market Report</h1>
-    <p class="lead">Twin Cities real estate data and trends; updated for 2026.</p>
+    <p class="lead">Live Twin Cities real estate data, straight from NorthstarMLS.</p>
   </div>
 </div>
 
@@ -31,84 +55,115 @@
       <span class="eyebrow">Market Snapshot</span>
       <h2>Where the market stands.</h2>
       <div class="divider"></div>
-      <p>Source: SPAAR Local Market Update, current as of April 7, 2026. All data from NorthstarMLS. 13-County Twin Cities Region.</p>
+      <p>These charts update automatically as new data comes in, so you're always looking at current numbers, not a snapshot that goes stale. All data is sourced from NorthstarMLS via InfoSparks, provided by the Saint Paul Area Association of REALTORS&reg; (SPAAR).</p>
     </div>
 
-    <!-- LIVE INFOSPARKS CHARTS; self-updating, no manual edits needed -->
-
-    <!-- Woodbury highlight stats; SPAAR verified March 2026 -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:56px;" class="fade-up stats-grid-4">
-      <div style="text-align:center;padding:28px 16px;background:var(--navy);border-radius:var(--radius-lg);color:var(--cream);">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold);">$429K</div>
-        <div style="font-size:0.8rem;color:rgba(250,248,243,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px;">Median Sale Price</div>
-        <div style="font-size:0.78rem;color:rgba(201,168,76,0.7);margin-top:4px;">Woodbury +6.4% YoY</div>
-      </div>
-      <div style="text-align:center;padding:28px 16px;background:var(--navy);border-radius:var(--radius-lg);color:var(--cream);">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold);">72</div>
-        <div style="font-size:0.8rem;color:rgba(250,248,243,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px;">Days on Market</div>
-        <div style="font-size:0.78rem;color:rgba(201,168,76,0.7);margin-top:4px;">Woodbury March 2026</div>
-      </div>
-      <div style="text-align:center;padding:28px 16px;background:var(--navy);border-radius:var(--radius-lg);color:var(--cream);">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold);">98.0%</div>
-        <div style="font-size:0.8rem;color:rgba(250,248,243,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px;">List-to-Sale Ratio</div>
-        <div style="font-size:0.78rem;color:rgba(201,168,76,0.7);margin-top:4px;">Sellers still hold leverage</div>
-      </div>
-      <div style="text-align:center;padding:28px 16px;background:var(--navy);border-radius:var(--radius-lg);color:var(--cream);">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold);">1.9mo</div>
-        <div style="font-size:0.8rem;color:rgba(250,248,243,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px;">Months of Supply</div>
-        <div style="font-size:0.78rem;color:rgba(201,168,76,0.7);margin-top:4px;">Seller's market (&lt;3mo)</div>
-      </div>
+    <div class="market-caveat fade-up">
+      <strong>A note on this data:</strong> all charts below reflect single-family, preowned homes only. New construction is not included.
     </div>
 
-    <!-- Live InfoSparks Charts -->
+    <!-- Woodbury Charts -->
     <div class="fade-up" style="margin-bottom:16px;">
-      <span class="eyebrow">Live Market Data — Updates Automatically Every Month</span>
+      <span class="eyebrow">Live Market Data</span>
       <h3 style="margin-top:6px;margin-bottom:4px;">Woodbury Real-Time Trends</h3>
-      <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:0;">No outdated snapshots. These charts pull directly from NorthstarMLS via InfoSparks and refresh with new data as it becomes available. Data provided by the Saint Paul Area Association of REALTORS&reg; (SPAAR) via InfoSparks &copy; ShowingTime Plus, LLC. All data from NorthstarMLS.</p>
     </div>
 
     <!-- Chart 1: Median Sales Price -->
     <div class="fade-up" style="margin-bottom:40px;">
       <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Median Sales Price; Woodbury</h4>
-      <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);">
-        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/NF4t-4fv?w=800&h=450" loading="lazy" title="Median Sales Price for Woodbury; InfoSparks"></iframe>
+      <div class="chart-scroll chart-desktop" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXSE-TsR?w=800&h=450" loading="lazy" title="Median Sales Price for Woodbury; InfoSparks"></iframe>
+      </div>
+      <div class="chart-scroll chart-mobile" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBX86-wxO?w=400&h=300" loading="lazy" title="Median Sales Price for Woodbury; InfoSparks"></iframe>
       </div>
     </div>
 
     <!-- Chart 2: Days on Market -->
     <div class="fade-up" style="margin-bottom:40px;">
       <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Median Days on Market; Woodbury</h4>
-      <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);">
-        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/NF4f-4fk?w=800&h=450" loading="lazy" title="Median Days on Market for Woodbury; InfoSparks"></iframe>
+      <div class="chart-scroll chart-desktop" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXS2-aJV?w=800&h=450" loading="lazy" title="Median Days on Market for Woodbury; InfoSparks"></iframe>
+      </div>
+      <div class="chart-scroll chart-mobile" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBX89-7UR?w=400&h=300" loading="lazy" title="Median Days on Market for Woodbury; InfoSparks"></iframe>
       </div>
     </div>
 
     <!-- Chart 3: Months Supply -->
     <div class="fade-up" style="margin-bottom:40px;">
       <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Months Supply of Homes for Sale; Woodbury</h4>
-      <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);">
-        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/NF4H-IPS?w=800&h=450" loading="lazy" title="Months Supply of Homes for Sale for Woodbury; InfoSparks"></iframe>
+      <div class="chart-scroll chart-desktop" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXwg-kzW?w=800&h=450" loading="lazy" title="Months Supply of Homes for Sale for Woodbury; InfoSparks"></iframe>
+      </div>
+      <div class="chart-scroll chart-mobile" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBX8g-SR?w=400&h=300" loading="lazy" title="Months Supply of Homes for Sale for Woodbury; InfoSparks"></iframe>
       </div>
     </div>
 
     <!-- Chart 4: Homes for Sale -->
     <div class="fade-up" style="margin-bottom:40px;">
       <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Homes for Sale (Inventory); Woodbury</h4>
-      <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);">
-        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/NF4R-Yf7?w=800&h=450" loading="lazy" title="Homes for Sale for Woodbury; InfoSparks"></iframe>
+      <div class="chart-scroll chart-desktop" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXwn-Jf2?w=800&h=450" loading="lazy" title="Homes for Sale for Woodbury; InfoSparks"></iframe>
+      </div>
+      <div class="chart-scroll chart-mobile" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXw7-dPy?w=400&h=300" loading="lazy" title="Homes for Sale for Woodbury; InfoSparks"></iframe>
       </div>
     </div>
 
     <!-- Chart 5: Pct of Original List Price -->
     <div class="fade-up" style="margin-bottom:56px;">
       <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Median Percent of Original List Price Received; Woodbury</h4>
-      <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);">
-        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/NF4S-PIX?w=800&h=450" loading="lazy" title="Median Percent of Original List Price for Woodbury; InfoSparks"></iframe>
+      <div class="chart-scroll chart-desktop" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="800" height="450" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXwP-3zh.HTML?w=800&h=450" loading="lazy" title="Median Percent of Original List Price for Woodbury; InfoSparks"></iframe>
+      </div>
+      <div class="chart-scroll chart-mobile" style="border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXwP-3zh?w=400&h=300" loading="lazy" title="Median Percent of Original List Price for Woodbury; InfoSparks"></iframe>
       </div>
     </div>
 
-    <!-- Mobile note -->
-    <p style="font-size:0.74rem;color:var(--text-light);text-align:center;margin-bottom:40px;">Charts may require horizontal scrolling on mobile devices. For best experience view on desktop.</p>
+    <!-- Metro Charts -->
+    <div class="fade-up" style="margin-bottom:16px;">
+      <span class="eyebrow">Live Market Data</span>
+      <h3 style="margin-top:6px;margin-bottom:4px;">Twin Cities Metro (13-County) Trends</h3>
+      <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:0;">The same data points, zoomed out to the full 13-county Twin Cities region.</p>
+    </div>
+
+    <div class="metro-chart-grid fade-up" style="margin-bottom:56px;">
+      <div>
+        <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Median Sales Price; 13-County Metro</h4>
+        <div class="chart-scroll" style="border-radius:var(--radius);border:1px solid var(--border);">
+          <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXSi-j5K?w=400&h=300" loading="lazy" title="Median Sales Price for 13-County Twin Cities Metro; InfoSparks"></iframe>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Median Days on Market; 13-County Metro</h4>
+        <div class="chart-scroll" style="border-radius:var(--radius);border:1px solid var(--border);">
+          <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXSU-PlK?w=400&h=300" loading="lazy" title="Median Days on Market for 13-County Twin Cities Metro; InfoSparks"></iframe>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Median Percent of Original List Price; 13-County Metro</h4>
+        <div class="chart-scroll" style="border-radius:var(--radius);border:1px solid var(--border);">
+          <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXSx-IM3?w=400&h=300" loading="lazy" title="Median Percent of Original List Price for 13-County Twin Cities Metro; InfoSparks"></iframe>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Months Supply of Homes for Sale; 13-County Metro</h4>
+        <div class="chart-scroll" style="border-radius:var(--radius);border:1px solid var(--border);">
+          <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXS9-90s?w=400&h=300" loading="lazy" title="Months Supply of Homes for Sale for 13-County Twin Cities Metro; InfoSparks"></iframe>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Homes for Sale (Inventory); 13-County Metro</h4>
+        <div class="chart-scroll" style="border-radius:var(--radius);border:1px solid var(--border);">
+          <iframe style="border:0;display:block;" width="400" height="300" src="https://northstarmls.stats.10kresearch.com/infoserv/s-v1/tBXOE-Qwr?w=400&h=300" loading="lazy" title="Homes for Sale for 13-County Twin Cities Metro; InfoSparks"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:0.74rem;color:var(--text-light);text-align:center;margin-bottom:40px;">Data provided by the Saint Paul Area Association of REALTORS&reg; (SPAAR) via InfoSparks &copy; ShowingTime Plus, LLC. All data from NorthstarMLS.</p>
 
 <section class="cta-banner">
   <div class="container">
@@ -116,7 +171,7 @@
     <p>Generic metro data only tells part of the story. Let's talk about what's happening on your specific street.</p>
     <div class="btn-row">
       <a href="/contact" class="btn btn-primary">Contact Gian</a>
-      <a href="/blog/twin-cities-housing-market-2026" class="btn btn-outline-light">Read Full 2026 Report</a>
+      <a href="/blog/twin-cities-housing-market-2026" class="btn btn-outline-light">Read Full Market Report</a>
     </div>
   </div>
 </section>
