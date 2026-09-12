@@ -129,6 +129,12 @@ a:hover { color: var(--navy); }
   margin: 0 auto;
   padding: 0 24px;
 }
+.nav-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
 .nav-logo {
   display: flex;
   align-items: center;
@@ -136,17 +142,19 @@ a:hover { color: var(--navy); }
   flex-shrink: 0;
 }
 .nav-logo-svg {
-  height: 52px;
+  height: 60px;
   width: auto;
-  max-width: 260px;
+  max-width: 300px;
   display: block;
   object-fit: contain;
 }
 .nav-logo-kw {
-  height: 28px;
+  height: 22px;
   width: auto;
   opacity: 1;
   flex-shrink: 0;
+  padding-left: 14px;
+  border-left: 1px solid var(--border);
 }
 .nav-links {
   display: flex;
@@ -266,12 +274,14 @@ a:hover { color: var(--navy); }
   .nav-hamburger { display: flex; }
 }
 @media (max-width: 768px) {
-  .nav-logo-svg { height: 40px; max-width: 200px; }
-  .nav-logo-kw { height: 22px; }
+  .nav-logo-group { gap: 10px; }
+  .nav-logo-svg { height: 46px; max-width: 220px; }
+  .nav-logo-kw { height: 18px; padding-left: 10px; }
 }
 @media (max-width: 480px) {
-  .nav-logo-svg { height: 36px; max-width: 180px; }
-  .nav-logo-kw { height: 18px; }
+  .nav-logo-group { gap: 8px; }
+  .nav-logo-svg { height: 40px; max-width: 190px; }
+  .nav-logo-kw { height: 15px; padding-left: 8px; }
 }
 
 /* ---- Footer ---- */
