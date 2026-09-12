@@ -111,7 +111,7 @@
               <li><a href="/market">Market Report</a></li>
               <li><a href="/blog">Blog</a></li>
               <li><a href="/blog/first-time-buyer-twin-cities">First-Time Buyers</a></li>
-              <li><a href="/blog/twin-cities-housing-market-2026">2026 Market</a></li>
+              <li><a href="/blog/twin-cities-housing-market-2026">Reading the Market</a></li>
               <li><a href="/about">About Gian</a></li>
             </ul>
           </div>
