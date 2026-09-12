@@ -14,6 +14,7 @@ module.exports = async function handler(req, res) {
   <url><loc>https://www.woodburynest.com/home-worth</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.woodburynest.com/services</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.woodburynest.com/market</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.woodburynest.com/explore</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.woodburynest.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.woodburynest.com/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.woodburynest.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>

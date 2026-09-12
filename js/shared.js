@@ -27,6 +27,7 @@
           <li><a href="/sellers" ${activePage==='sellers'?'class="active"':''}>Sell</a></li>
           <li><a href="/listings" ${activePage==='listings'?'class="active"':''}>Listings</a></li>
           <li><a href="/market" ${activePage==='market'?'class="active"':''}>Market</a></li>
+          <li><a href="/explore" ${activePage==='explore'?'class="active"':''}>Explore</a></li>
           <li class="nav-dropdown">
             <a href="/blog" ${['blog','home-worth'].includes(activePage)?'class="active"':''}>Resources</a>
             <ul class="nav-dropdown-menu">
@@ -48,6 +49,7 @@
           <li><a href="/sellers">Sell</a></li>
           <li><a href="/listings">Listings</a></li>
           <li><a href="/market">Market</a></li>
+          <li><a href="/explore">Explore</a></li>
           <li class="nav-mobile-label">Resources</li>
           <li><a href="/home-worth">Home Value / CMA</a></li>
           <li><a href="/blog/down-payment-assistance-myths">Down Payment Assistance</a></li>
