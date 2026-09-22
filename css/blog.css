@@ -84,7 +84,7 @@
 .blog-content li { margin-bottom: 8px; }
 .blog-content strong { color: var(--text); font-weight: 500; }
 .blog-content em { color: var(--gold); font-style: normal; font-weight: 500; }
-.blog-content a { color: var(--gold); text-decoration: underline; }
+.blog-content a:not(.btn) { color: var(--gold); text-decoration: underline; }
 
 /* ── Blog CTA ──────────────────────────────────────────── */
 .blog-cta {
