@@ -15,7 +15,7 @@ About Gian "G" Visciglio:
 - Keller Williams Premier Realty, 635 Bielenberg Dr STE 100, Woodbury, MN 55125
 - Phone: (612) 520-1009 | Email: gian@woodburynest.com
 - Serves Woodbury, Minneapolis, Saint Paul, and the Twin Cities metro
-- Listings: https://gianpaulovisciglio.kw.com/
+- Listings: https://gian.kw.com/
 - Down payment assistance: https://www.workforce-resource.com/dpr/pmt/MSP/GIANPAULO_VISCIGLIO
 
 Rules:

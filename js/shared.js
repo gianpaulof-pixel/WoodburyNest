@@ -126,7 +126,7 @@
               <a href="mailto:gian@woodburynest.com">gian@woodburynest.com</a><br><br>
               635 Bielenberg Dr, STE 100<br>
               Woodbury, MN 55125<br><br>
-              <a href="https://gianpaulovisciglio.kw.com/" target="_blank" rel="noopener">Browse Listings →</a>
+              <a href="https://gian.kw.com/" target="_blank" rel="noopener">Browse Listings →</a>
             </address>
           </div>
         </div>
@@ -448,7 +448,7 @@
         "description": "Find homes for sale in Woodbury and the Twin Cities with WoodburyNest. Trusted guidance for buyers, sellers, and first-time homeowners.",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://gianpaulovisciglio.kw.com/?search={search_term_string}",
+          "target": "https://gian.kw.com/?search={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       });
