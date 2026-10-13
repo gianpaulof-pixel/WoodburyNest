@@ -20,7 +20,7 @@
           <a href="/" class="nav-logo" aria-label="WoodburyNest - Home">
             <img src="/images/logo.svg" alt="WoodburyNest" class="nav-logo-svg" loading="eager" />
           </a>
-          <img src="/images/kw-logo.png" alt="Keller Williams Premier Realty" class="nav-logo-kw" />
+          <img src="/images/kw-classic-realty-nw.png" alt="Keller Williams Classic Realty NW" class="nav-logo-kw" />
         </div>
         <ul class="nav-links">
           <li><a href="/buyers" ${activePage==='buyers'?'class="active"':''}>Buy</a></li>
@@ -89,10 +89,9 @@
         <div class="footer-grid">
           <div class="footer-brand">
             <img src="/images/logo.svg" alt="WoodburyNest" style="height:44px;width:auto;max-width:200px;display:block;margin-bottom:12px;filter:brightness(0) invert(1);" />
-            <p>Your Twin Cities real estate guide. Serving Woodbury, Minneapolis, Saint&nbsp;Paul, Eagan, Burnsville, Bloomington, Maple Grove, Plymouth, Cottage&nbsp;Grove, Stillwater, and beyond.</p>
+            <p>Your Woodbury and East Metro real estate guide. Serving Woodbury, Cottage&nbsp;Grove, Oakdale, Lake&nbsp;Elmo, Stillwater, and Maplewood primarily, and helping buyers and sellers across the Twin&nbsp;Cities.</p>
             <div class="kw-affiliation">
-              <img src="/images/kw-logo.png" alt="Keller Williams Premier Realty" />
-              <span>Affiliated with<br>Keller Williams Premier Realty</span>
+              <img src="/images/kw-classic-realty-nw-rev.png" alt="Keller Williams Classic Realty NW" class="kw-logo-rev" />
             </div>
             <div style="display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap;">
               <img src="/images/realtor-logo.png" alt="REALTOR®" style="height:38px;width:auto;filter:brightness(0) invert(1);opacity:0.75;" />
@@ -123,18 +122,23 @@
             <h4>Contact</h4>
             <address>
               <a href="tel:6125201009">(612) 520-1009</a><br>
-              <a href="mailto:gian@woodburynest.com">gian@woodburynest.com</a><br><br>
-              635 Bielenberg Dr, STE 100<br>
-              Woodbury, MN 55125<br><br>
+              <a href="mailto:gian@woodburynest.com">gian@woodburynest.com</a><br>
+              Based in Woodbury; meetings in person or virtual<br><br>
+              Brokerage office:<br>
+              Keller Williams Classic Realty NW<br>
+              10402 73rd Ave N<br>
+              Maple Grove, MN 55369<br><br>
               <a href="https://gian.kw.com/" target="_blank" rel="noopener">Browse Listings →</a>
             </address>
           </div>
         </div>
         <div class="footer-bottom">
-          <p style="font-size:0.84rem;color:rgba(250,248,243,0.65);font-weight:500;margin-bottom:8px;">Gian &ldquo;G&rdquo; Visciglio, REALTOR® &nbsp;|&nbsp; MN License #41031450 &nbsp;|&nbsp; Keller Williams Premier Realty</p>
+          <p style="font-size:0.84rem;color:rgba(250,248,243,0.65);font-weight:500;margin-bottom:8px;">Gian &ldquo;G&rdquo; Visciglio, REALTOR® &nbsp;|&nbsp; MN License #41031450 &nbsp;|&nbsp; Keller Williams Classic Realty NW</p>
+          <p style="font-size:0.84rem;color:rgba(250,248,243,0.65);font-weight:500;margin-bottom:8px;">Each Office Is Independently Owned and Operated.</p>
+          <p class="footer-fair-housing">We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation. We encourage and support an affirmative advertising and marketing program in which there are no barriers to obtaining housing because of race, color, religion, sex, handicap, familial status, or national origin.</p>
           <p>&copy; ${new Date().getFullYear()} WoodburyNest. All rights reserved. &nbsp;|&nbsp; 
             <a href="/contact">Contact</a> &nbsp;|&nbsp; <a href="/about">About</a><br>
-            WoodburyNest is operated by Gian &ldquo;G&rdquo; Visciglio (licensed as Gianpaulo Visciglio), REALTOR&reg;, MN License #41031450, affiliated with Keller Williams Premier Realty, 635 Bielenberg Dr STE 100, Woodbury, MN 55125. Equal Housing Opportunity. All information deemed reliable but not guaranteed.
+            WoodburyNest is operated by Gian &ldquo;G&rdquo; Visciglio (licensed as Gianpaulo Visciglio), REALTOR&reg;, MN License #41031450, affiliated with Keller Williams Classic Realty NW, 10402 73rd Ave N, Maple Grove, MN 55369. Equal Housing Opportunity. All information deemed reliable but not guaranteed.
           </p>
         </div>
       </div>
@@ -336,6 +340,12 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(form));
+      // Call/text consent: record Yes/No plus the exact wording shown
+      if (form.querySelector('[name="consent"]')) {
+        data.consent = data.consent === 'Yes' ? 'Yes' : 'No';
+        const consentText = form.querySelector('.consent-text');
+        if (consentText) data.consent_text = consentText.textContent.trim();
+      }
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
 

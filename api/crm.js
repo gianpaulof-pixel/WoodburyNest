@@ -27,6 +27,7 @@ async function sendNotification(lead) {
   const phone  = lead.phone || 'Not provided';
   const intent = lead.intent || lead.interest || 'Not provided';
   const notes  = (lead.notes || lead.message || 'None').replace(/\|/g, '<br>');
+  const consent = lead.consent === 'Yes' ? 'Yes' : (lead.consent === 'No' ? 'No' : 'Not asked');
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -49,6 +50,7 @@ async function sendNotification(lead) {
             <tr><td style="padding:8px 0;color:#888;">Email</td><td><a href="mailto:${email}" style="color:#c9a84c;">${email}</a></td></tr>
             <tr><td style="padding:8px 0;color:#888;">Phone</td><td><a href="tel:${phone}" style="color:#c9a84c;">${phone}</a></td></tr>
             <tr><td style="padding:8px 0;color:#888;">Intent</td><td>${intent}</td></tr>
+            <tr><td style="padding:8px 0;color:#888;">Call/Text OK</td><td>${consent}</td></tr>
             <tr><td style="padding:8px 0;color:#888;vertical-align:top;">Notes</td><td style="line-height:1.65;">${notes}</td></tr>
           </table>
           <p style="margin-top:16px;font-size:0.78rem;color:#aaa;">${new Date().toLocaleString('en-US',{timeZone:'America/Chicago'})} CT</p>
@@ -88,20 +90,25 @@ async function appendToSheet(lead) {
   const status   = lead.status   || 'new';
   const notes    = lead.notes    || lead.message  || '';
   const source   = lead.source   || 'contact-form';
-  const row = [id, name, email, phone, intent, timeline, status, notes, '', source, now, now];
+  // Call/text consent: Yes / No from the form checkbox; blank for sources without a checkbox (e.g. chatbot)
+  const consent     = lead.consent === 'Yes' ? 'Yes' : (lead.consent === 'No' ? 'No' : '');
+  const consentText = consent ? String(lead.consent_text || '').slice(0, 1000) : '';
+  const row = [id, name, email, phone, intent, timeline, status, notes, '', source, now, now, consent, consentText];
 
   try {
     const check = await sheets.spreadsheets.values.get({
-      spreadsheetId: SHEET_ID, range: 'Leads!A1:L1',
+      spreadsheetId: SHEET_ID, range: 'Leads!A1:N1',
     });
-    if (!check.data.values?.[0] || check.data.values[0][0] !== 'ID') {
+    const header = check.data.values?.[0];
+    // Writes the header if missing, or extends an existing 12-column header with the consent columns
+    if (!header || header[0] !== 'ID' || header[12] !== 'Consent' || header[13] !== 'ConsentText') {
       await sheets.spreadsheets.values.update({
-        spreadsheetId: SHEET_ID, range: 'Leads!A1:L1', valueInputOption: 'RAW',
-        requestBody: { values: [['ID','Name','Email','Phone','Intent','Timeline','Status','Notes','FollowUp','Source','CreatedAt','UpdatedAt']] },
+        spreadsheetId: SHEET_ID, range: 'Leads!A1:N1', valueInputOption: 'RAW',
+        requestBody: { values: [['ID','Name','Email','Phone','Intent','Timeline','Status','Notes','FollowUp','Source','CreatedAt','UpdatedAt','Consent','ConsentText']] },
       });
     }
     await sheets.spreadsheets.values.append({
-      spreadsheetId: SHEET_ID, range: 'Leads!A:L', valueInputOption: 'RAW',
+      spreadsheetId: SHEET_ID, range: 'Leads!A:N', valueInputOption: 'RAW',
       requestBody: { values: [row] },
     });
     console.log(`[CRM] Sheets: saved to Leads tab — ${name}`);
@@ -109,8 +116,8 @@ async function appendToSheet(lead) {
   } catch (err) {
     console.error(`[CRM] Leads tab failed: ${err.message} — trying Sheet1`);
     await sheets.spreadsheets.values.append({
-      spreadsheetId: SHEET_ID, range: 'Sheet1!A:H', valueInputOption: 'RAW',
-      requestBody: { values: [[now, name, email, phone, intent, '', notes, source]] },
+      spreadsheetId: SHEET_ID, range: 'Sheet1!A:J', valueInputOption: 'RAW',
+      requestBody: { values: [[now, name, email, phone, intent, '', notes, source, consent, consentText]] },
     });
     console.log(`[CRM] Sheets: saved to Sheet1 fallback — ${name}`);
     return { tab: 'Sheet1', id };
@@ -134,7 +141,7 @@ module.exports = async function handler(req, res) {
         const a = await getAuth();
         const sheets = google.sheets({ version: 'v4', auth: a });
         const result = await sheets.spreadsheets.values.get({
-          spreadsheetId: SHEET_ID, range: 'Leads!A:L',
+          spreadsheetId: SHEET_ID, range: 'Leads!A:N',
         });
         const rows = result.data.values || [];
         if (rows.length <= 1) return res.status(200).json({ leads: [] });
@@ -143,6 +150,7 @@ module.exports = async function handler(req, res) {
           intent:r[4]||'',timeline:r[5]||'',status:r[6]||'new',
           notes:r[7]||'',followUp:r[8]||'',source:r[9]||'',
           createdAt:r[10]||'',updatedAt:r[11]||'',
+          consent:r[12]||'',consentText:r[13]||'',
         }));
         return res.status(200).json({ leads });
       } catch (err) {
